@@ -8,7 +8,7 @@ public class PlanetSpawner : MonoBehaviour {
 	[SerializeField] private float spawnInteval;
 
 	private void Start() {
-		
+		StartCoroutine(SpawnPlanets());
 	}
 
 	private IEnumerator SpawnPlanets() {
@@ -20,7 +20,6 @@ public class PlanetSpawner : MonoBehaviour {
 			}
 			counter += Time.deltaTime;
 		}
-		yield return 
 	}
 
 	private void SpawnPlanet() {
