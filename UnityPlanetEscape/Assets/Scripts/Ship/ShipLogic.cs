@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class ShipLogic : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Camera _Camera;
+    Vector3 mousePoz;
+  
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        mouseLogic();
+    }
+    public void mouseLogic()
+    {
+        mousePoz = Input.mousePosition;
+        var worldPoz = _Camera.ScreenToWorldPoint(new Vector3(mousePoz.x, mousePoz.y, 5f));
+
+        if (Input.GetMouseButtonDown(0)) 
+        {
+           
+            
+           //todo ->
+           //ship.transform.position = worldPoz;
+            transform.position = worldPoz;
+            
+            
+        }
+
+
     }
 }
