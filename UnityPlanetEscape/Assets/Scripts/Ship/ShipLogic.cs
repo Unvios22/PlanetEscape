@@ -49,5 +49,13 @@ public class ShipLogic : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90f);
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Nie żyjesz1");
+        if (tag.Equals("obstacle"))
+        {
+            //todo nieżyjesz
+            Debug.Log("Nie żyjesz2");
+        }
+    }
 }
