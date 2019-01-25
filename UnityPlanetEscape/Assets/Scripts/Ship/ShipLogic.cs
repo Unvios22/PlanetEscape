@@ -7,8 +7,9 @@ public class ShipLogic : MonoBehaviour
     
     [SerializeField] private Camera _Camera;
     Vector3 mousePoz, worldPoz,velocity;
-    private float speed = 2;
+    private float speed = 5;
     Rigidbody rb;
+    [SerializeField] private float fuel;
   
     void Start()
     {
@@ -25,11 +26,13 @@ public class ShipLogic : MonoBehaviour
         {
            var mouseDir = worldPoz - gameObject.transform.position;
             mouseDir = mouseDir.normalized;
-            rb.AddForce(mouseDir * speed);
+            if (fuel > 0)
+            {
+                rb.AddForce(mouseDir * speed * Time.deltaTime);
+                fuel -= Time.deltaTime;
+            }
         }
 
-       
-       // transform.position = Vector3.forward * speed;
     }
     public void mouseLogic()
     {
