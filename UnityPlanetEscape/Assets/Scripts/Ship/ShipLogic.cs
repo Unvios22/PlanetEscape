@@ -7,7 +7,7 @@ public class ShipLogic : MonoBehaviour
     
     [SerializeField] private Camera _Camera;
     Vector3 mousePoz, worldPoz,velocity;
-    private float speed = 5;
+    private float speed = 90f;
     Rigidbody rb;
     [SerializeField] private float fuel;
   
@@ -48,5 +48,6 @@ public class ShipLogic : MonoBehaviour
         float rot_z = Mathf.Atan2(newWorldPoz.y, newWorldPoz.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90f);
     }
+
     
 }
