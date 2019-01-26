@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  check: 0
+  destroyOnDistanceToPlanet: 100
+  planet: {fileID: 0}
 --- !u!135 &2321823010524856591
 SphereCollider:
   m_ObjectHideFlags: 0

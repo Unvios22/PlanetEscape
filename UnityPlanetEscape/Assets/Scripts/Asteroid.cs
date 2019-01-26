@@ -3,43 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour {
-    // Start is called before the first frame update
+	public float speed = 10.0f;
+	public float destroyOnDistanceToPlanet;
+	[SerializeField] private GameObject planet;
+	private Rigidbody _rigidbody;
 
-    GameObject asteroid;
-    public float speed = 10.0f;
-    public bool check;
-    private Rigidbody _rigidbody;
-    
-    void Start() {
-        _rigidbody = gameObject.GetComponent<Rigidbody>();
-        asteroid = GameObject.Find("AsteroidCircle");
-        StartCoroutine(Destroy());
-        
-    }
+	void Start() {
+		_rigidbody = gameObject.GetComponent<Rigidbody>();
+		_rigidbody.AddForce(Random.insideUnitCircle * speed * Random.Range(0.6f,1f),ForceMode.Impulse);
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        _rigidbody.AddRelativeForce(Random.insideUnitCircle * speed);
-    }
+	void Update() {
 
-    IEnumerator Destroy() {
-        check = true;
-        yield return new WaitForSeconds(1);
-        check = false;
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Planet")&&check) {
-            asteroid.GetComponent<AsteroidAtack>().count -=1;
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if (other.gameObject.CompareTag("AsteroidField")) {
-            asteroid.GetComponent<AsteroidAtack>().count -=1;
-            Destroy(gameObject);
-        }
-    }
+		if (DistanceToPlanet(transform.position) > destroyOnDistanceToPlanet) {
+			GameObject.FindObjectOfType<AsteroidSpawner>().asteroidAmount--;
+			Destroy(gameObject);
+		}
+	}
+	private float DistanceToPlanet(Vector3 position) {
+		return Vector3.Distance(position, planet.transform.position);
+	}
 }
