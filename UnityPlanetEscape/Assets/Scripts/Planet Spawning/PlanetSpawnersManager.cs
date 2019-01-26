@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Planet_Spawning {
 	public class PlanetSpawnersManager : MonoBehaviour {
 		[SerializeField] private float spawnInterval;
 		[SerializeField] private List<PlanetSpawner> planetSpawnersList;
+		[SerializeField] private List<GameObject> PlanetPrefabsList = new List<GameObject>();
 		private void Start() {
 			OnValidate();
 			StartCoroutine(SpawnPlanets());
+		}
+
+		private void initializePlanetSpawners() {
+			foreach (var spawner in planetSpawnersList) {
+				spawner.PlanetPrefabsList = PlanetPrefabsList;
+			}
 		}
 
 		private IEnumerator SpawnPlanets() {

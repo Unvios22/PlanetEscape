@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Planet_Spawning {
 	public class PlanetSpawner : MonoBehaviour {
-		[SerializeField] private GameObject planetPrefab;
+		public List<GameObject> PlanetPrefabsList;
 		[SerializeField] private List<Transform> spawnRootPoints = new List<Transform>();
 		[SerializeField] private GameObject target;
 		[SerializeField] private float spawnRandomness = 1;
@@ -22,10 +22,14 @@ namespace Planet_Spawning {
 			//randomize position somewhere around the chosen root
 			var spawnPoint = Random.insideUnitCircle * spawnRandomness + (Vector2)spawnRoot.position;
 			
-			var planet = Instantiate(planetPrefab, spawnPoint, Quaternion.identity);
+			var planet = Instantiate(GetRandomPlanetPrefab(), spawnPoint, Quaternion.identity);
 			MovePlanetTowardsTarget(planet); 
 		}
 
+		private GameObject GetRandomPlanetPrefab() {
+			return PlanetPrefabsList[Random.Range(0, PlanetPrefabsList.Count)];
+		}
+		
 		private void MovePlanetTowardsTarget(GameObject planet) {
 			var targetPosition = GetPositionNearTarget();
 			var heading = targetPosition - planet.transform.position;
