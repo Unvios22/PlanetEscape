@@ -81,7 +81,11 @@ public class ShipLogic : MonoBehaviour
     {
         maxPplOnBoard += amount;
     }
-    
+
+    public void Refuel()
+    {
+        
+    }
     
 
     public float CurrentFuel => currentFuel;
