@@ -35,8 +35,7 @@ namespace Planet_Spawning {
 			var heading = targetPosition - planet.transform.position;
 			var distance = heading.magnitude;
 			var direction = heading / distance;
-			
-			planet.GetComponent<Rigidbody>().AddForce(direction * planetSpeed);
+			planet.GetComponent<Rigidbody2D>().AddForce(direction * planetSpeed);
 		}
 
 		private Vector3 GetPositionNearTarget() {
