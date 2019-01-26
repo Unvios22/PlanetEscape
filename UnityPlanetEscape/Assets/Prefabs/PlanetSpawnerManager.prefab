@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6943163aec07946a3e9f5d91b8c2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetPrefab: {fileID: 0}
+  PlanetPrefabsList: []
   spawnRootPoints:
   - {fileID: 3109109799542317647}
   - {fileID: 3109109799583162499}
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6943163aec07946a3e9f5d91b8c2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetPrefab: {fileID: 0}
+  PlanetPrefabsList: []
   spawnRootPoints:
   - {fileID: 3109109798393839894}
   - {fileID: 3109109798960755806}
@@ -273,6 +273,7 @@ MonoBehaviour:
   planetSpawnersList:
   - {fileID: 3109109799293874621}
   - {fileID: 3109109799224626940}
+  PlanetPrefabsList: []
 --- !u!1 &3109109799542317640
 GameObject:
   m_ObjectHideFlags: 0
