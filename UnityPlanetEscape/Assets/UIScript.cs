@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Ship;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class UIScript : MonoBehaviour
     private Text currentHP,maxHP;
     private Text currentResources;
     [SerializeField] public bool IsInSpace;
+    public GameObject window;
     void Start()
     {
         currentHP = currentHPObj.GetComponent<Text>();
@@ -21,7 +23,7 @@ public class UIScript : MonoBehaviour
     {
         PrintHP();   
         PrintResources();
-        changeIcons();
+        ChangeIcons();
     }
 
     void PrintHP()
@@ -36,7 +38,7 @@ public class UIScript : MonoBehaviour
         currentResources.text = "100K";
     }
 
-    void changeIcons()
+    void ChangeIcons()
     {
         if (IsInSpace)
         {
@@ -52,5 +54,14 @@ public class UIScript : MonoBehaviour
         }
         
     }
+    public void OpenWindow()
+    {
+        window.SetActive(true);
+    }
+    public void CloseWindow()
+    {
+        window.SetActive(false);
+    }
+    
     
 }
