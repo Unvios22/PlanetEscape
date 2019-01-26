@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class AsteroidSpawner : MonoBehaviour {
-	[FormerlySerializedAs("asteroid")] public GameObject asteroidPrefab;
+	[SerializeField] private List<GameObject> asteroidPrefabsList = new List<GameObject>();
 	[FormerlySerializedAs("planet")] [SerializeField] private GameObject spawnCenter;
 	[SerializeField] private int asteridMaxAmount = 25;
 	[SerializeField] private float minimalDistanceToPlanet = 5f;
@@ -33,10 +33,15 @@ public class AsteroidSpawner : MonoBehaviour {
 		while (DistanceToPlanet(spawnPoint) < minimalDistanceToPlanet) {
 			spawnPoint = Random.insideUnitCircle * asteroidSpawnRadius;
 		}
-		var asteroid =  Instantiate(asteroidPrefab, spawnPoint, Quaternion.identity);
+		var asteroid =  Instantiate(getRandomAsteroidFromList(), spawnPoint, Quaternion.identity);
 		var asteroidScript = asteroid.GetComponent<Asteroid>();
 		asteroidScript.destroyOnDistanceToPlanet = maxDistanceToPlanet;
 		asteroidScript.speed = asteroidSpeed;
+		asteroidScript.planet = spawnCenter;
+	}
+
+	private GameObject getRandomAsteroidFromList() {
+		return asteroidPrefabsList[Random.Range(0, asteroidPrefabsList.Count)];
 	}
 	
 	private float DistanceToPlanet(Vector3 position) {

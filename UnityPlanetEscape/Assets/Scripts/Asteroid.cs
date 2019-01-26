@@ -5,7 +5,7 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour {
 	public float speed = 10.0f;
 	public float destroyOnDistanceToPlanet;
-	[SerializeField] private GameObject planet;
+	public GameObject planet;
 	private Rigidbody2D _rigidbody2D;
 
 	void Start() {
