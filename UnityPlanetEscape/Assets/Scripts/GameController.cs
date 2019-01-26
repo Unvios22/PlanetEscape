@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Ship;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -7,6 +7,10 @@ public class GameController : MonoBehaviour {
 	public GameStage stage;
 	[SerializeField] private AsteroidSpawner asteroidSpawner;
 	[SerializeField] private float difficultyTimeIncrease = 2f;
+
+	[SerializeField] private ShipLogic shipControls;
+
+	[SerializeField] private ShootingFromPlanet planetControls;
 	//lower means harder
 
 	private delegate void GameStageChangeDelegate();
@@ -45,7 +49,8 @@ public class GameController : MonoBehaviour {
 
 	private IEnumerator ShipStage() {
 		for (;;) {
-			//todo: podpiac sterowanie statkiem
+			shipControls.ReadControls();
+			yield return null;
 		}
 	}
 
@@ -53,8 +58,11 @@ public class GameController : MonoBehaviour {
 		asteroidSpawner.asteroidMaxAmount = 25;
 		StartCoroutine(DifficultyIncrease());
 		for (;;) {
-			//todo: podpiac sterowanie dzialkiem na planecie; jesli paliwo jest pelne, i gracz nacisnie e, to wystrzel
-			//statek zamiast nastepnego pocisku i przelacz na tryb statku
+			planetControls.ReadControls();
+			if (Input.GetKey(KeyCode.E)) {
+			//todo: test against some variables and subtract some of them - so  that launching the ship acually costs something
+			ShipStageEvent();
+			}
 		}
 
 	}
