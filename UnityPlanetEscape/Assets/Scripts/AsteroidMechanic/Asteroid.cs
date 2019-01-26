@@ -7,6 +7,7 @@ public class Asteroid : MonoBehaviour {
 	public float destroyOnDistanceToPlanet;
 	public GameObject planet;
 	private Rigidbody2D _rigidbody2D;
+	public AsteroidSpawner asteroidSpawner;
 
 	void Start() {
 		_rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
@@ -21,6 +22,7 @@ public class Asteroid : MonoBehaviour {
 	}
 	
 	public void DestroyAsteroid() {
+		asteroidSpawner.asteroidAmount--;
 		Destroy(gameObject);
 	}
 
