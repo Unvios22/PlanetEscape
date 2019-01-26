@@ -38,6 +38,7 @@ public class AsteroidSpawner : MonoBehaviour {
 		asteroidScript.destroyOnDistanceToPlanet = maxDistanceToPlanet;
 		asteroidScript.speed = asteroidSpeed;
 		asteroidScript.planet = spawnCenter;
+		asteroidScript.asteroidSpawner = this;
 	}
 
 	private GameObject getRandomAsteroidFromList() {

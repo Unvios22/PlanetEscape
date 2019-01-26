@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Ship {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class ShipLogic : MonoBehaviour
     {
     
         [SerializeField] private Camera _Camera;
         Vector3 mousePoz, worldPoz,velocity;
         private float speed = 90f;
-        Rigidbody rb;
+        Rigidbody2D rb;
         [FormerlySerializedAs("fuel")] [SerializeField] private float currentFuel;
         [SerializeField] private float maxFuel;
         public ShooterScript ShooterScript; 
@@ -19,7 +19,7 @@ namespace Ship {
   
         void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            rb = GetComponent<Rigidbody2D>();
         }
 
     
