@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShutingFromPlanet : MonoBehaviour
+public class ShootingFromPlanet : MonoBehaviour
 {
     [SerializeField]GameObject target;
     [SerializeField] GameObject pocisk;
