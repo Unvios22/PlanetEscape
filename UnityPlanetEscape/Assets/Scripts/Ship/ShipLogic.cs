@@ -16,6 +16,15 @@ namespace Ship {
         [SerializeField] private float maxFuel;
         public ShooterScript ShooterScript; 
         [SerializeField] private GameController gameController;
+    [SerializeField] private Camera _Camera;
+    Vector3 mousePoz, worldPoz,velocity;
+    private float speed = 90f;
+    Rigidbody rb;
+    [FormerlySerializedAs("fuel")] [SerializeField] private float currentFuel;
+    [SerializeField] private float maxFuel;
+    public float pplOnBoard;
+    public float maxPplOnBoard;
+    public ShooterScript ShooterScript;
   
         void Start()
         {
@@ -72,15 +81,40 @@ namespace Ship {
             }
         }
 
+    public void UpgadeTank(float amount)
+    {
+        maxFuel += amount;
+    }
+    public void UpgadeCapacity(float amount)
+    {
+        maxPplOnBoard += amount;
+    }
+
+    public void Refuel(float cost, float fuelAmmount)
+    {
+        if (currentFuel < maxFuel)
+        {
+            if (gameController.resources > cost)
+            {
+                gameController.resources -= cost;
+                currentFuel += fuelAmmount;
+                if (fuelAmmount > maxFuel)
+                    fuelAmmount = maxFuel;
+            }
+        }
+    }
+    
         private void OnTriggerEnter2D(Collider2D other) {
-            if (other.gameObject.CompareTag(Tags.ALIEN_PLANET)) {
-                gameController.ColonizePlanet(other.gameObject);
+        if (other.gameObject.CompareTag(Tags.ALIEN_PLANET)) {
+           gameController.ColonizePlanet(other.gameObject);
             }
         }
 
-        public float CurrentFuel => currentFuel;
-        public float MaxFuel => maxFuel;
-    
+    public float CurrentFuel => currentFuel;
+    public float MaxFuel => maxFuel;
+        
+        
+   
     
     }
 }
