@@ -779,6 +779,7 @@ MonoBehaviour:
   resources: {fileID: 882841359004340313}
   currentFoodObj: {fileID: 882841359444424328}
   currentPopulationObj: {fileID: 882841358446707965}
+  Bar: {fileID: 882841357559163696}
   window: {fileID: 882841358697613371}
   currentHPinWInObj: {fileID: 882841359564195871}
   maxHPinWInObj: {fileID: 882841357453883567}

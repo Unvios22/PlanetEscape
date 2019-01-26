@@ -6,6 +6,8 @@ public class PlayerPlanet : MonoBehaviour {
 	[Range(0f,100f)]
 	public float health = 100f;
 	[SerializeField] private float asteroidDamage;
+
+	[SerializeField] private Animator hpBarAnimator;
 	//todo attach to player planet gameobject
 
 	private void OnTriggerEnter(Collider other) {
@@ -15,6 +17,7 @@ public class PlayerPlanet : MonoBehaviour {
 	}
 
 	private void Update() {
+		hpBarAnimator.SetFloat("HP",health);
 		if (health <= 0) {
 			Debug.Log("You died.");
 			//todo implement dying mechanic

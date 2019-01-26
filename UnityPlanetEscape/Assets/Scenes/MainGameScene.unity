@@ -268,6 +268,11 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 915376449}
+    - target: {fileID: 5891173702627878022, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba,
+        type: 3}
+      propertyPath: fuelUpgradeCost
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba, type: 3}
 --- !u!1 &489916287 stripped
@@ -331,9 +336,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: {fileID: 0}
   planetProgress: 0
-  resources: 0
-  population: 0
-  food: 0
+  resources: 150
+  population: 150
+  food: 100
   stage: 0
   asteroidSpawner: {fileID: 1198261659}
   difficultyTimeIncrease: 2
@@ -537,6 +542,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM
       objectReference: {fileID: 0}
+    - target: {fileID: 882841357850789320, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: ShipLogic
+      value: 
+      objectReference: {fileID: 745300888}
+    - target: {fileID: 882841357850789320, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: GameController
+      value: 
+      objectReference: {fileID: 915376449}
+    - target: {fileID: 882841358204706101, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 745300888}
+    - target: {fileID: 882841358204706101, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgadeTank
+      objectReference: {fileID: 0}
     - target: {fileID: 882841358788436182, guid: a88593f7831f64121ae6673b52a2fe46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -592,6 +617,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882841359085463126, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359085463126, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359085463126, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359085463126, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 745300888}
+    - target: {fileID: 882841359085463126, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Refuel
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359085463126, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359085463126, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359322136203, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 745300888}
+    - target: {fileID: 882841359322136203, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgadeCapacity
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a88593f7831f64121ae6673b52a2fe46, type: 3}
 --- !u!1 &2080321661
@@ -604,6 +674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2080321664}
   - component: {fileID: 2080321662}
+  - component: {fileID: 2080321663}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -619,6 +690,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080321661}
   m_CullTransparentMesh: 0
+--- !u!114 &2080321663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080321661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a0f63d46e54193b7ad74c007acc2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  asteroidDamage: 0
+  hpBarAnimator: {fileID: 882841357559163698}
 --- !u!224 &2080321664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -638,6 +724,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &882841357559163698 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 882841357559163698, guid: a88593f7831f64121ae6673b52a2fe46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1923967530}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8481122015029425442
 PrefabInstance:
   m_ObjectHideFlags: 0
