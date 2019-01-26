@@ -1,17 +1,24 @@
 using System.Collections;
+using ReadonlyData;
 using Ship;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
+	public PlayerPlanet currentPlanet;
 	public float planetProgress;
+	public float resources;
+	public float population;
+	public float food;
 	public GameStage stage;
 	[SerializeField] private AsteroidSpawner asteroidSpawner;
 	[SerializeField] private float difficultyTimeIncrease = 2f;
-
-	[SerializeField] private ShipLogic shipControls;
-
-	[SerializeField] private ShootingFromPlanet planetControls;
 	//lower means harder
+	
+	[SerializeField] private ShipLogic shipControls;
+	[SerializeField] private ShootingFromPlanet planetControls;
+	[SerializeField] private GameObject shipGameObject;
+	[SerializeField] private GameObject playerPlanetGameObject;
+	
 
 	private delegate void GameStageChangeDelegate();
 	private event GameStageChangeDelegate ShipStageEvent ;
@@ -20,6 +27,13 @@ public class GameController : MonoBehaviour {
 	public enum GameStage {
 		Planet,
 		Ship
+	}
+
+	public void ColonizePlanet(GameObject planet) {
+		currentPlanet = planet.AddComponent<PlayerPlanet>();
+		currentPlanet.gameObject.tag = Tags.PLAYER_PLANET;
+		OnPlanetStage();
+		
 	}
 
 	private void Start() {
@@ -39,11 +53,13 @@ public class GameController : MonoBehaviour {
 
 	private void OnShipStage() {
 		StopAllCoroutines();
+		stage = GameStage.Ship;
 		StartCoroutine(ShipStage());
 	}
 
 	private void OnPlanetStage() {
 		StopAllCoroutines();
+		stage = GameStage.Planet;
 		StartCoroutine(PlanetStage());
 	}
 
@@ -63,6 +79,7 @@ public class GameController : MonoBehaviour {
 			//todo: test against some variables and subtract some of them - so  that launching the ship acually costs something
 			ShipStageEvent();
 			}
+			yield return null;
 		}
 
 	}
@@ -74,6 +91,8 @@ public class GameController : MonoBehaviour {
 				counter = 0;
 				asteroidSpawner.asteroidMaxAmount++;
 			}
+			counter += Time.deltaTime;
+			yield return null;
 		}
 	}
 

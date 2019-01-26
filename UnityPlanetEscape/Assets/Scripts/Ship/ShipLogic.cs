@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using ReadonlyData;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Ship {
@@ -12,7 +14,9 @@ namespace Ship {
         Rigidbody rb;
         [FormerlySerializedAs("fuel")] [SerializeField] private float currentFuel;
         [SerializeField] private float maxFuel;
-        public ShooterScript ShooterScript;
+        public ShooterScript ShooterScript; 
+            
+        [SerializeField] private GameController gameController;
   
         void Start()
         {
@@ -66,6 +70,12 @@ namespace Ship {
             {
                 //todo nieżyjesz
                 Debug.Log("Nie żyjesz2");
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (other.gameObject.CompareTag(Tags.ALIEN_PLANET)) {
+                gameController.ColonizePlanet(other.gameObject);
             }
         }
 
