@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,13 +182,43 @@ PrefabInstance:
     - target: {fileID: 3109109799493610506, guid: d290d0dc98ce0cd46a364110c8aeeceb,
         type: 3}
       propertyPath: PlanetPrefabsList.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3109109799493610506, guid: d290d0dc98ce0cd46a364110c8aeeceb,
         type: 3}
       propertyPath: PlanetPrefabsList.Array.data[0]
       value: 
       objectReference: {fileID: 1766499060084217969, guid: 0955f89975b8b5a4fbf122100691ed73,
+        type: 3}
+    - target: {fileID: 3109109799493610506, guid: d290d0dc98ce0cd46a364110c8aeeceb,
+        type: 3}
+      propertyPath: PlanetPrefabsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1766499060084217969, guid: 46e0caf913994fd4dbfa800cbff9c57e,
+        type: 3}
+    - target: {fileID: 3109109799493610506, guid: d290d0dc98ce0cd46a364110c8aeeceb,
+        type: 3}
+      propertyPath: PlanetPrefabsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1766499060084217969, guid: 7088e8e7f767a5541969f667ee5f1440,
+        type: 3}
+    - target: {fileID: 3109109799493610506, guid: d290d0dc98ce0cd46a364110c8aeeceb,
+        type: 3}
+      propertyPath: PlanetPrefabsList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1766499060084217969, guid: ac1988ec74f80ac418346dcaa295cd35,
+        type: 3}
+    - target: {fileID: 3109109799493610506, guid: d290d0dc98ce0cd46a364110c8aeeceb,
+        type: 3}
+      propertyPath: PlanetPrefabsList.Array.data[4]
+      value: 
+      objectReference: {fileID: 1766499060084217969, guid: cf17be3f1bc19a34381893bfba35c228,
+        type: 3}
+    - target: {fileID: 3109109799493610506, guid: d290d0dc98ce0cd46a364110c8aeeceb,
+        type: 3}
+      propertyPath: PlanetPrefabsList.Array.data[5]
+      value: 
+      objectReference: {fileID: 1766499060084217969, guid: f64a3525c9adfbd4f9e802465a372c5f,
         type: 3}
     - target: {fileID: 3109109799478588535, guid: d290d0dc98ce0cd46a364110c8aeeceb,
         type: 3}
@@ -371,8 +401,8 @@ Camera:
   m_GameObject: {fileID: 1912621898}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}

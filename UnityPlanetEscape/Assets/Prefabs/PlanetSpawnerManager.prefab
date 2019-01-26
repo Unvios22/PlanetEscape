@@ -206,7 +206,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlanetsTarget
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -273,7 +273,13 @@ MonoBehaviour:
   planetSpawnersList:
   - {fileID: 3109109799293874621}
   - {fileID: 3109109799224626940}
-  PlanetPrefabsList: []
+  PlanetPrefabsList:
+  - {fileID: 1766499060084217969, guid: 0955f89975b8b5a4fbf122100691ed73, type: 3}
+  - {fileID: 1766499060084217969, guid: 46e0caf913994fd4dbfa800cbff9c57e, type: 3}
+  - {fileID: 1766499060084217969, guid: 7088e8e7f767a5541969f667ee5f1440, type: 3}
+  - {fileID: 1766499060084217969, guid: ac1988ec74f80ac418346dcaa295cd35, type: 3}
+  - {fileID: 1766499060084217969, guid: cf17be3f1bc19a34381893bfba35c228, type: 3}
+  - {fileID: 1766499060084217969, guid: f64a3525c9adfbd4f9e802465a372c5f, type: 3}
 --- !u!1 &3109109799542317640
 GameObject:
   m_ObjectHideFlags: 0
