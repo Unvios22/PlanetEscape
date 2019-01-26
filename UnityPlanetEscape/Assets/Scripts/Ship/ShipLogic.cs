@@ -10,6 +10,7 @@ public class ShipLogic : MonoBehaviour
     private float speed = 90f;
     Rigidbody rb;
     [SerializeField] private float fuel;
+    public ShooterScript ShooterScript;
   
     void Start()
     {
@@ -21,6 +22,7 @@ public class ShipLogic : MonoBehaviour
     {
         
         mouseLogic();
+        if (fuel > 0)
         lookAtMouse();
         if (Input.GetKey(KeyCode.W))
         {
@@ -31,6 +33,11 @@ public class ShipLogic : MonoBehaviour
                 rb.AddForce(mouseDir * speed * Time.deltaTime);
                 fuel -= Time.deltaTime;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShooterScript.shoot();
         }
 
     }
