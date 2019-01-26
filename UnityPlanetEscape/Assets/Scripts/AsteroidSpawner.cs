@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class AsteroidSpawner : MonoBehaviour {
 	[FormerlySerializedAs("asteroid")] public GameObject asteroidPrefab;
-	[SerializeField] private GameObject planet;
+	[FormerlySerializedAs("planet")] [SerializeField] private GameObject spawnCenter;
 	[SerializeField] private int asteridMaxAmount = 25;
 	[SerializeField] private float minimalDistanceToPlanet = 5f;
 	[SerializeField] private float maxDistanceToPlanet = 5f;
@@ -40,7 +40,7 @@ public class AsteroidSpawner : MonoBehaviour {
 	}
 	
 	private float DistanceToPlanet(Vector3 position) {
-		return Vector3.Distance(position, planet.transform.position);
+		return Vector3.Distance(position, spawnCenter.transform.position);
 	}
 
 	private void OnDrawGizmos() {
