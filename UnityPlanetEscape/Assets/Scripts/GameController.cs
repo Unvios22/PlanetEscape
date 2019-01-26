@@ -32,9 +32,10 @@ public class GameController : MonoBehaviour {
 
 	public void ColonizePlanet(GameObject planet) {
 		currentPlanet = planet.AddComponent<PlayerPlanet>();
-		currentPlanet.gameObject.tag = Tags.PLAYER_PLANET;
-		OnPlanetStage();
-		
+		currentPlanet.tag = Tags.PLAYER_PLANET;
+		currentPlanet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+		PlanetStageEvent();
+
 	}
 
 	private void Start() {
@@ -54,7 +55,8 @@ public class GameController : MonoBehaviour {
 
 	private void OnShipStage() {
 		StopAllCoroutines();
-		shipGameObject.SetActive(true);
+		shipGameObject.GetComponent<Renderer>().enabled = true;
+		shipGameObject.GetComponent<Collider2D>().enabled = true;
 		planetShooterGameObject.SetActive(false);
 		stage = GameStage.Ship;
 		StartCoroutine(ShipStage());
@@ -62,7 +64,9 @@ public class GameController : MonoBehaviour {
 
 	private void OnPlanetStage() {
 		StopAllCoroutines();
-		shipGameObject.SetActive(false);
+		shipGameObject.GetComponent<Renderer>().enabled = false;
+		shipGameObject.GetComponent<Collider2D>().enabled = false;
+		shipGameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		planetShooterGameObject.SetActive(true);
 		stage = GameStage.Planet;
 		StartCoroutine(PlanetStage());
@@ -94,7 +98,7 @@ public class GameController : MonoBehaviour {
 		for (;;) {
 			if (counter >= difficultyTimeIncrease) {
 				counter = 0;
-				asteroidSpawner.asteroidMaxAmount++;
+				asteroidSpawner .asteroidMaxAmount++;
 			}
 			counter += Time.deltaTime;
 			yield return null;
