@@ -8,14 +8,16 @@ namespace Ship {
     public class ShipLogic : MonoBehaviour
     {
     
-        [SerializeField] private Camera _Camera;
-        Vector3 mousePoz, worldPoz,velocity;
-        private float speed = 90f;
-        Rigidbody rb;
-        [FormerlySerializedAs("fuel")] [SerializeField] private float currentFuel;
-        [SerializeField] private float maxFuel;
-        public ShooterScript ShooterScript; 
         [SerializeField] private GameController gameController;
+    [SerializeField] private Camera _Camera;
+    Vector3 mousePoz, worldPoz,velocity;
+    private float speed = 90f;
+    Rigidbody rb;
+    [FormerlySerializedAs("fuel")] [SerializeField] private float currentFuel;
+    [SerializeField] private float maxFuel;
+    private float pplOnBoard;
+    private float maxPplOnBoard;
+    public ShooterScript ShooterScript;
   
         void Start()
         {
@@ -72,14 +74,27 @@ namespace Ship {
             }
         }
 
+    public void UpgadeTank(float amount)
+    {
+        maxFuel += amount;
+    }
+    public void UpgadeCapacity(float amount)
+    {
+        maxPplOnBoard += amount;
+    }
+
+    public void Refuel()
+    {
+        
+    }
+    
+    public float CurrentFuel => currentFuel;
+    public float MaxFuel => maxFuel;
         private void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.CompareTag(Tags.ALIEN_PLANET)) {
                 gameController.ColonizePlanet(other.gameObject);
             }
         }
-
-        public float CurrentFuel => currentFuel;
-        public float MaxFuel => maxFuel;
     
     
     }
