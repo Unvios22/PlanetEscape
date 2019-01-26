@@ -6,6 +6,7 @@ using UnityEngine;
 public class UIScript : MonoBehaviour
 {
     public GameObject currentHPObj,maxHPObj;
+    public ShipLogic ShipLogic;
     Text currentHP,maxHP;
     void Start()
     {
@@ -15,7 +16,8 @@ public class UIScript : MonoBehaviour
 
     void Update()
     {
-        currentHP.text = "abcd /";
-        maxHP.text = "yyyy";
+        currentHP.text = "" + ShipLogic.CurrentFuel;
+        maxHP.text = "/ " + ShipLogic.MaxFuel;
+        
     }
 }

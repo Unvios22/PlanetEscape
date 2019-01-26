@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 [RequireComponent(typeof(Rigidbody))]
 public class ShipLogic : MonoBehaviour
 {
@@ -9,7 +11,8 @@ public class ShipLogic : MonoBehaviour
     Vector3 mousePoz, worldPoz,velocity;
     private float speed = 90f;
     Rigidbody rb;
-    [SerializeField] private float fuel;
+    [FormerlySerializedAs("fuel")] [SerializeField] private float currentFuel;
+    [SerializeField] private float maxFuel;
     public ShooterScript ShooterScript;
   
     void Start()
@@ -22,16 +25,16 @@ public class ShipLogic : MonoBehaviour
     {
         
         mouseLogic();
-        if (fuel > 0)
+        if (currentFuel > 0)
         lookAtMouse();
         if (Input.GetKey(KeyCode.W))
         {
            var mouseDir = worldPoz - gameObject.transform.position;
             mouseDir = mouseDir.normalized;
-            if (fuel > 0)
+            if (currentFuel > 0)
             {
                 rb.AddForce(mouseDir * speed * Time.deltaTime);
-                fuel -= Time.deltaTime;
+                currentFuel -= Time.deltaTime;
             }
         }
 
@@ -65,4 +68,9 @@ public class ShipLogic : MonoBehaviour
             Debug.Log("Nie żyjesz2");
         }
     }
+
+    public float CurrentFuel => currentFuel;
+    public float MaxFuel => maxFuel;
+    
+    
 }
