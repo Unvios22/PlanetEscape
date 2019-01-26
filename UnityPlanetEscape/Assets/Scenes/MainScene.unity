@@ -747,7 +747,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 171482668}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 745300888}
+        m_MethodName: UpgadeCapacity
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &171482668
@@ -1019,6 +1030,11 @@ PrefabInstance:
       propertyPath: ShooterScript
       value: 
       objectReference: {fileID: 773776852432764447}
+    - target: {fileID: 5891173702627878022, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba,
+        type: 3}
+      propertyPath: currentFuel
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 773776852432764447, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba,
         type: 3}
       propertyPath: amountToPool
@@ -2100,7 +2116,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1233337750}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 745300888}
+        m_MethodName: UpgadeTank
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1233337750
@@ -3003,7 +3030,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1918226397}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1928062312}
+        m_MethodName: CloseWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1918226397
@@ -3204,6 +3242,7 @@ MonoBehaviour:
   resources: {fileID: 959033593}
   ShipLogic: {fileID: 745300888}
   IsInSpace: 0
+  window: {fileID: 794978459}
 --- !u!1 &2080321661
 GameObject:
   m_ObjectHideFlags: 0

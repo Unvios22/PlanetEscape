@@ -13,6 +13,8 @@ public class ShipLogic : MonoBehaviour
     Rigidbody rb;
     [FormerlySerializedAs("fuel")] [SerializeField] private float currentFuel;
     [SerializeField] private float maxFuel;
+    private float pplOnBoard;
+    private float maxPplOnBoard;
     public ShooterScript ShooterScript;
   
     void Start()
@@ -70,6 +72,17 @@ public class ShipLogic : MonoBehaviour
             Debug.Log("Nie żyjesz2");
         }
     }
+
+    public void UpgadeTank(float amount)
+    {
+        maxFuel += amount;
+    }
+    public void UpgadeCapacity(float amount)
+    {
+        maxPplOnBoard += amount;
+    }
+    
+    
 
     public float CurrentFuel => currentFuel;
     public float MaxFuel => maxFuel;
