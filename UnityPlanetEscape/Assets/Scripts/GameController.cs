@@ -18,10 +18,11 @@ public class GameController : MonoBehaviour {
 	[SerializeField] private ShootingFromPlanet planetControls;
 	[SerializeField] private GameObject shipGameObject;
 	[SerializeField] private GameObject playerPlanetGameObject;
+	[SerializeField] private GameObject planetShooterGameObject;
 	
 
 	private delegate void GameStageChangeDelegate();
-	private event GameStageChangeDelegate ShipStageEvent ;
+	private event GameStageChangeDelegate ShipStageEvent;
 	private event GameStageChangeDelegate PlanetStageEvent;
 
 	public enum GameStage {
@@ -53,12 +54,16 @@ public class GameController : MonoBehaviour {
 
 	private void OnShipStage() {
 		StopAllCoroutines();
+		shipGameObject.SetActive(true);
+		planetShooterGameObject.SetActive(false);
 		stage = GameStage.Ship;
 		StartCoroutine(ShipStage());
 	}
 
 	private void OnPlanetStage() {
 		StopAllCoroutines();
+		shipGameObject.SetActive(false);
+		planetShooterGameObject.SetActive(true);
 		stage = GameStage.Planet;
 		StartCoroutine(PlanetStage());
 	}

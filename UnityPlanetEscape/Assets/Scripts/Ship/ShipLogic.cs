@@ -15,7 +15,6 @@ namespace Ship {
         [FormerlySerializedAs("fuel")] [SerializeField] private float currentFuel;
         [SerializeField] private float maxFuel;
         public ShooterScript ShooterScript; 
-            
         [SerializeField] private GameController gameController;
   
         void Start()
