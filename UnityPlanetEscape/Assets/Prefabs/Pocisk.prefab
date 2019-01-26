@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6889235823037480347}
   - component: {fileID: 2127246741721111273}
+  - component: {fileID: 5907298300564089409}
   - component: {fileID: 1234042940941820830}
+  - component: {fileID: 4834342418338892242}
   m_Layer: 0
-  m_Name: hehePocisk
+  m_Name: Pocisk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,6 +82,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5907298300564089409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427209776193359778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493d44c71789b16429a94f179366abe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1234042940941820830
 Rigidbody2D:
   serializedVersion: 4
@@ -101,3 +115,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &4834342418338892242
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427209776193359778}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2

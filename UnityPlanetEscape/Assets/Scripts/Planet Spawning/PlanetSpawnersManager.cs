@@ -11,9 +11,10 @@ namespace Planet_Spawning {
 		private void Start() {
 			OnValidate();
 			StartCoroutine(SpawnPlanets());
+			InitializePlanetSpawners();
 		}
 
-		private void initializePlanetSpawners() {
+		private void InitializePlanetSpawners() {
 			foreach (var spawner in planetSpawnersList) {
 				spawner.PlanetPrefabsList = PlanetPrefabsList;
 			}
