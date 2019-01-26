@@ -38,6 +38,8 @@ public class ShipLogic : MonoBehaviour
             }
         }
 
+        if (currentFuel < 0)
+            currentFuel = 0;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ShooterScript.shoot();
