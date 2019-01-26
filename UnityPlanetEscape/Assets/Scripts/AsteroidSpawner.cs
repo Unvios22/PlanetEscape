@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 public class AsteroidSpawner : MonoBehaviour {
 	[SerializeField] private List<GameObject> asteroidPrefabsList = new List<GameObject>();
 	[FormerlySerializedAs("planet")] [SerializeField] private GameObject spawnCenter;
-	[SerializeField] private int asteridMaxAmount = 25;
+	public int asteroidMaxAmount = 25;
 	[SerializeField] private float minimalDistanceToPlanet = 5f;
 	[SerializeField] private float maxDistanceToPlanet = 5f;
 	[SerializeField] private float asteroidSpawnRadius = 30f;
@@ -20,7 +20,7 @@ public class AsteroidSpawner : MonoBehaviour {
 
 	IEnumerator SpawnAsteroids() {
 		for(;;) {
-			if (asteroidAmount < asteridMaxAmount) {
+			if (asteroidAmount < asteroidMaxAmount) {
 				SpawnAsteroid();
 				asteroidAmount++;
 			}
@@ -54,4 +54,5 @@ public class AsteroidSpawner : MonoBehaviour {
 		Gizmos.DrawWireSphere(position, maxDistanceToPlanet);
 		Gizmos.DrawWireSphere(position, minimalDistanceToPlanet);
 	}
+	
 }
