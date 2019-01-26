@@ -53,7 +53,8 @@ public class GameController : MonoBehaviour {
 		asteroidSpawner.asteroidMaxAmount = 25;
 		StartCoroutine(DifficultyIncrease());
 		for (;;) {
-			//todo: podpiac sterowanie dzialkiem na planecie; jesli paliwo jest pelne, i gracz nacisnie e, to wystrzel statek zamiast nastepnego pocisku
+			//todo: podpiac sterowanie dzialkiem na planecie; jesli paliwo jest pelne, i gracz nacisnie e, to wystrzel
+			//statek zamiast nastepnego pocisku i przelacz na tryb statku
 		}
 
 	}
