@@ -23,7 +23,11 @@ public class ShootingLaserFromPlanet : MonoBehaviour {
 
 //
     private void Start() {
-
+        Camera cam = Camera.main;
+        float height = 2f * cam.orthographicSize;
+        float width = height * cam.aspect;
+        
+        
         //laserBulletRb.GetComponent<Rigidbody2D>();
 //        cam = Camera.main;
 //        targetStartPosition = target.transform.position;
