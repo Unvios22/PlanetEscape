@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -542,26 +542,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM
       objectReference: {fileID: 0}
-    - target: {fileID: 882841357850789320, guid: a88593f7831f64121ae6673b52a2fe46,
-        type: 3}
-      propertyPath: ShipLogic
-      value: 
-      objectReference: {fileID: 745300888}
-    - target: {fileID: 882841357850789320, guid: a88593f7831f64121ae6673b52a2fe46,
-        type: 3}
-      propertyPath: GameController
-      value: 
-      objectReference: {fileID: 915376449}
-    - target: {fileID: 882841358204706101, guid: a88593f7831f64121ae6673b52a2fe46,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 745300888}
-    - target: {fileID: 882841358204706101, guid: a88593f7831f64121ae6673b52a2fe46,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpgadeTank
-      objectReference: {fileID: 0}
     - target: {fileID: 882841358788436182, guid: a88593f7831f64121ae6673b52a2fe46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -617,6 +597,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882841357850789320, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: ShipLogic
+      value: 
+      objectReference: {fileID: 745300888}
+    - target: {fileID: 882841357850789320, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: GameController
+      value: 
+      objectReference: {fileID: 915376449}
+    - target: {fileID: 882841359322136203, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 745300888}
+    - target: {fileID: 882841359322136203, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgadeCapacity
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841358204706101, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 745300888}
+    - target: {fileID: 882841358204706101, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgadeTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359444424331, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841358697613371, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359004340313, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841357879621189, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841358446707904, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359532457163, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841358860064904, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 138
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359120109311, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -124.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 882841359120109311, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 170.3
+      objectReference: {fileID: 0}
     - target: {fileID: 882841359085463126, guid: a88593f7831f64121ae6673b52a2fe46,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -651,16 +706,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 882841359322136203, guid: a88593f7831f64121ae6673b52a2fe46,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 745300888}
-    - target: {fileID: 882841359322136203, guid: a88593f7831f64121ae6673b52a2fe46,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpgadeCapacity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a88593f7831f64121ae6673b52a2fe46, type: 3}
