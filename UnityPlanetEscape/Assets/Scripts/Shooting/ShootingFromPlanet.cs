@@ -21,7 +21,8 @@ public class ShootingFromPlanet : MonoBehaviour
         targetStartPosition = target.transform.position;
     }
 
-    private void Update()
+    public void ReadControls()
+    //old Update; now invoked in GameController
     {
         if (Input.GetMouseButton(0))
         {

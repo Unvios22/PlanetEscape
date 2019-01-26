@@ -19,12 +19,6 @@ public class ShooterScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
     public void shoot()
     {
         GameObject bullet = GetPooledObject(); 
