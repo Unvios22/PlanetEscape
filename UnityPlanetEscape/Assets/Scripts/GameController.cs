@@ -197,7 +197,7 @@ public class GameController : MonoBehaviour {
 	public float Resources {
 		get { return resources; }
 		set {
-			if (resources - value < 0) {
+			if (value < 0) {
 				resources = 0;
 			}
 			else {
@@ -209,7 +209,7 @@ public class GameController : MonoBehaviour {
 	public float Population {
 		get { return population; }
 		set {
-			if (population - value < 0) {
+			if (value < 0) {
 				population = 0;
 			}
 			else {
@@ -221,7 +221,7 @@ public class GameController : MonoBehaviour {
 	public float Food {
 		get { return food; }
 		set {
-			if (food - value < 0) {
+			if (value < 0) {
 				food = 0;
 			}
 			else {
