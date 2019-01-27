@@ -190,7 +190,7 @@ public class GameController : MonoBehaviour {
 		for (;;) {
 			if (food > 0)
 				food--;
-			yield return new WaitForSeconds(2f - (population / 100));
+			yield return new WaitForSeconds(2f - (population / 100f));
 		}
 	}
 
