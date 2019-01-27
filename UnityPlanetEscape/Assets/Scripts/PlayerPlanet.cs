@@ -10,6 +10,10 @@ public class PlayerPlanet : MonoBehaviour {
 	[SerializeField] private Animator hpBarAnimator;
 	//todo attach to player planet gameobject
 
+	private void Start() {
+		hpBarAnimator = GameObject.FindWithTag(Tags.UI_HP_BAR).GetComponent<Animator>();
+	}
+
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag(Tags.ASTEROID)) {
 			health--;

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using ReadonlyData;
 using Ship;
 using UnityEngine;
@@ -13,11 +14,12 @@ public class GameController : MonoBehaviour {
 	[SerializeField] private AsteroidSpawner asteroidSpawner;
 	[SerializeField] private float difficultyTimeIncrease = 2f;
 	//lower means harder
-	
+
+	[SerializeField] private GameObject screenCenter;
+	[SerializeField] private List<GameObject> PlanetPrefabsList = new List<GameObject>();
 	[SerializeField] private ShipLogic shipControls;
 	[SerializeField] private ShootingFromPlanet planetControls;
 	[SerializeField] private GameObject shipGameObject;
-	[SerializeField] private GameObject playerPlanetGameObject;
 	[SerializeField] private GameObject planetShooterGameObject;
 	
 
@@ -39,21 +41,27 @@ public class GameController : MonoBehaviour {
 	}
 
 	private void Start() {
-		PlanetStageEvent();
+		InitializeStaringPlanet();
+	}
+
+	private void InitializeStaringPlanet() {
+		var startingPlanet = Instantiate(PlanetPrefabsList[Random.Range(0, PlanetPrefabsList.Count)]);
+		startingPlanet.transform.position = screenCenter.transform.position;
+		ColonizePlanet(startingPlanet);
 	}
 
 	private void OnEnable() {
 		
-		ShipStageEvent += OnShipStage;
-		PlanetStageEvent += OnPlanetStage;
+		ShipStageEvent += OnShipStageStart;
+		PlanetStageEvent += OnPlanetStageStart;
 	}
 
 	private void OnDisable() {
-		ShipStageEvent -= OnShipStage;
-		PlanetStageEvent -= OnPlanetStage;
+		ShipStageEvent -= OnShipStageStart;
+		PlanetStageEvent -= OnPlanetStageStart;
 	}
 
-	private void OnShipStage() {
+	private void OnShipStageStart() {
 		StopAllCoroutines();
 		shipGameObject.GetComponent<Renderer>().enabled = true;
 		shipGameObject.GetComponent<Collider2D>().enabled = true;
@@ -62,7 +70,7 @@ public class GameController : MonoBehaviour {
 		StartCoroutine(ShipStage());
 	}
 
-	private void OnPlanetStage() {
+	private void OnPlanetStageStart() {
 		StopAllCoroutines();
 		shipGameObject.GetComponent<Renderer>().enabled = false;
 		shipGameObject.GetComponent<Collider2D>().enabled = false;

@@ -9,6 +9,7 @@ TagManager:
   - Asteroid
   - AlienPlanet
   - PlayerPlanet
+  - UI_HP_Bar
   layers:
   - Default
   - TransparentFX
