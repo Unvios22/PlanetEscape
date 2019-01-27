@@ -85,7 +85,9 @@ public class GameController : MonoBehaviour {
 		StartCoroutine(ShipStage());
 	}
 
-	private void DisposeOfCurrentPlanet() {
+	private void DisposeOfCurrentPlanet()
+	{
+		currentPlanet.gameObject.GetComponent<Collider2D>().enabled = false;
 		var randomDirection = new Vector2(Random.Range(0f, 360f), Random.Range(0f, 360f));
 		currentPlanet.GetComponent<Rigidbody2D>().AddForce(randomDirection * 15f, ForceMode2D.Force);
 	}
