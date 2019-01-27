@@ -2,6 +2,7 @@
 using AsteroidMechanic;
 using ReadonlyData;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace Ship {
@@ -47,7 +48,7 @@ namespace Ship {
 
 			hpBarAnimator.SetFloat("HP",health);
 			if (health <= 0) {
-				Debug.Log("You died.");
+				SceneManager.LoadScene("GameOver"); 
 				//todo implement dying mechanic
 			}
 			if (currentFuel < 0)
