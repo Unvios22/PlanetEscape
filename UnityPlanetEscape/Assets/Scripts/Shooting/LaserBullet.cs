@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Shooting;
 using UnityEngine;
 
 public class LaserBullet : MonoBehaviour {

@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using ReadonlyData;
 using Ship;
+using Shooting;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
+	
 	public PlayerPlanet currentPlanet;
 	public float planetProgress;
 	public float resources;
