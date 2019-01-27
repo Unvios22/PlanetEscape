@@ -124,8 +124,8 @@ public class GameController : MonoBehaviour {
 		{
 			if (food > 0 && stage == GameStage.Planet)
 				population++;
-			else if(food < 0 )
-				population-= 7;
+			else if(food <= 0 )
+				population-= 19; //todo maybe random here?
 			if(population <0)
 				Debug.Log("game over");
 			yield return new WaitForSeconds(2f);
