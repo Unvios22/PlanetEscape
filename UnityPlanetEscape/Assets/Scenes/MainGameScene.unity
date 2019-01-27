@@ -1189,6 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a0f63d46e54193b7ad74c007acc2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
 --- !u!224 &2080321664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1280,5 +1281,20 @@ PrefabInstance:
       propertyPath: spawnCenter
       value: 
       objectReference: {fileID: 2080321661}
+    - target: {fileID: 8481122016146274063, guid: 67f6d6c8fbbf4934d8bc544b28e67934,
+        type: 3}
+      propertyPath: asteroidMaxAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481122016146274063, guid: 67f6d6c8fbbf4934d8bc544b28e67934,
+        type: 3}
+      propertyPath: minimalDistanceToPlanet
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481122016146274063, guid: 67f6d6c8fbbf4934d8bc544b28e67934,
+        type: 3}
+      propertyPath: asteroidSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f6d6c8fbbf4934d8bc544b28e67934, type: 3}
