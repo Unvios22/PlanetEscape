@@ -71,7 +71,13 @@ public class GameController : MonoBehaviour {
 		shipGameObject.GetComponent<Collider2D>().enabled = true;
 		planetShooterGameObject.SetActive(false);
 		stage = GameStage.Ship;
+		DisposeOfCurrentPlanet();
 		StartCoroutine(ShipStage());
+	}
+
+	private void DisposeOfCurrentPlanet() {
+		var randomDirection = new Vector2(Random.Range(0f,360f), Random.Range(0f,360f));
+		currentPlanet.GetComponent<Rigidbody2D>().AddForce(randomDirection * 15f, ForceMode2D.Force);
 	}
 
 	private void OnPlanetStageStart() {
