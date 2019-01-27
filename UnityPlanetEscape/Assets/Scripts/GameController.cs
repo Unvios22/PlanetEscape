@@ -10,7 +10,8 @@ public class GameController : MonoBehaviour {
 	public float resources;
 	public float population;
 	public float food;
-	private float factor = 80f;
+	public UIScript UiScript;
+	private float resourcesMultiplierFactor = 80f;
 	public GameStage stage;
 	[SerializeField] private AsteroidSpawner asteroidSpawner;
 	[SerializeField] private float difficultyTimeIncrease = 2f;
@@ -39,7 +40,14 @@ public class GameController : MonoBehaviour {
 		currentPlanet.tag = Tags.PLAYER_PLANET;
 		currentPlanet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		PlanetStageEvent();
+	}
 
+	public void FreezeTime() {
+		Time.timeScale = 0f;
+	}
+
+	public void UnFreezeTime() {
+		Time.timeScale = 1;
 	}
 
 	private void Start() {
@@ -110,6 +118,13 @@ public class GameController : MonoBehaviour {
 			//todo: test against some variables and subtract some of them - so  that launching the ship acually costs something
 			ShipStageEvent();
 			}
+
+			if (Input.GetKeyDown(KeyCode.F) && !UiScript.isUIOpen) {
+				UiScript.OpenWindow();
+			}
+			else if (Input.GetKeyDown(KeyCode.F) && UiScript.isUIOpen) {
+				UiScript.CloseWindow();
+			}
 			yield return null;
 		}
 
@@ -120,7 +135,7 @@ public class GameController : MonoBehaviour {
 		for (;;)
 		{
 			resources++;
-			yield return new WaitForSeconds(factor/population);
+			yield return new WaitForSeconds(resourcesMultiplierFactor/population);
 		}
 	}
 

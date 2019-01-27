@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Ship;
+using UnityEditorInternal;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class UIScript : MonoBehaviour
 {
     [SerializeField] public bool IsInSpace;
+    public bool isUIOpen;
     public ShipLogic ShipLogic;
     public GameController GameController;
     //in-game UI
@@ -87,13 +89,15 @@ public class UIScript : MonoBehaviour
         }
         
     }
-    public void OpenWindow()
-    {
+    public void OpenWindow() {
+        isUIOpen = true;
         window.SetActive(true);
+        GameController.FreezeTime();
     }
-    public void CloseWindow()
-    {
+    public void CloseWindow() {
+        isUIOpen = false;
         window.SetActive(false);
+        GameController.UnFreezeTime();
     }
 
     void ChangeBool()
