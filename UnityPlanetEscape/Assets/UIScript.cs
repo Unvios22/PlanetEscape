@@ -79,13 +79,13 @@ public class UIScript : MonoBehaviour
         {
             fuel.SetActive(true);
             resources.SetActive(false);
-           // Bar.SetActive(true);
+            Bar.SetActive(true);
         }
         else
         {
             fuel.SetActive(false);
             resources.SetActive(true);
-           // Bar.SetActive(false);
+            Bar.SetActive(false);
         }
         
     }
