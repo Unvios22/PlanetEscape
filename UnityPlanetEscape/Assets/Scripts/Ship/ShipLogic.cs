@@ -89,8 +89,8 @@ namespace Ship {
 				if (gameController.resources > fuelUpgradeCost) {
 					gameController.resources -= fuelUpgradeCost;
 					currentFuel += fuelAmmount;
-					if (fuelAmmount > maxFuel)
-						fuelAmmount = maxFuel;
+					if (currentFuel > maxFuel)
+						currentFuel = maxFuel;
 				}
 			}
 		}
