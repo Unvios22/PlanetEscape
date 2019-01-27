@@ -47,12 +47,13 @@ public class UIScript : MonoBehaviour
         ChangeIcons();
         PrintThingsInWindow();
         PrintPopulation();
+        ChangeBool();
     }
 
     void PrintFuel()
     {
         currentHP.text = "" + ShipLogic.CurrentFuel;
-        maxHP.text = "/ " + ShipLogic.MaxFuel;
+        maxHP.text = "/" + ShipLogic.MaxFuel;
     }
 
     void PrintResources()
@@ -93,6 +94,18 @@ public class UIScript : MonoBehaviour
     public void CloseWindow()
     {
         window.SetActive(false);
+    }
+
+    void ChangeBool()
+    {
+        if (GameController.stage == GameController.GameStage.Planet)
+        {
+            IsInSpace = false;
+        }
+        else
+        {
+            IsInSpace = true;
+        }
     }
 
     public void PrintThingsInWindow()
