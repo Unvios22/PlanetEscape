@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using ReadonlyData;
 using Ship;
 using UnityEngine;
@@ -13,11 +14,12 @@ public class GameController : MonoBehaviour {
 	[SerializeField] private AsteroidSpawner asteroidSpawner;
 	[SerializeField] private float difficultyTimeIncrease = 2f;
 	//lower means harder
-	
+
+	[SerializeField] private GameObject screenCenter;
+	[SerializeField] private List<GameObject> PlanetPrefabsList = new List<GameObject>();
 	[SerializeField] private ShipLogic shipControls;
 	[SerializeField] private ShootingFromPlanet planetControls;
 	[SerializeField] private GameObject shipGameObject;
-	[SerializeField] private GameObject playerPlanetGameObject;
 	[SerializeField] private GameObject planetShooterGameObject;
 	
 
@@ -32,37 +34,47 @@ public class GameController : MonoBehaviour {
 
 	public void ColonizePlanet(GameObject planet) {
 		currentPlanet = planet.AddComponent<PlayerPlanet>();
-		currentPlanet.gameObject.tag = Tags.PLAYER_PLANET;
-		OnPlanetStage();
-		
+		currentPlanet.tag = Tags.PLAYER_PLANET;
+		currentPlanet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+		PlanetStageEvent();
+
 	}
 
 	private void Start() {
-		PlanetStageEvent();
+		InitializeStaringPlanet();
+	}
+
+	private void InitializeStaringPlanet() {
+		var startingPlanet = Instantiate(PlanetPrefabsList[Random.Range(0, PlanetPrefabsList.Count)]);
+		startingPlanet.transform.position = screenCenter.transform.position;
+		ColonizePlanet(startingPlanet);
 	}
 
 	private void OnEnable() {
 		
-		ShipStageEvent += OnShipStage;
-		PlanetStageEvent += OnPlanetStage;
+		ShipStageEvent += OnShipStageStart;
+		PlanetStageEvent += OnPlanetStageStart;
 	}
 
 	private void OnDisable() {
-		ShipStageEvent -= OnShipStage;
-		PlanetStageEvent -= OnPlanetStage;
+		ShipStageEvent -= OnShipStageStart;
+		PlanetStageEvent -= OnPlanetStageStart;
 	}
 
-	private void OnShipStage() {
+	private void OnShipStageStart() {
 		StopAllCoroutines();
-		shipGameObject.SetActive(true);
+		shipGameObject.GetComponent<Renderer>().enabled = true;
+		shipGameObject.GetComponent<Collider2D>().enabled = true;
 		planetShooterGameObject.SetActive(false);
 		stage = GameStage.Ship;
 		StartCoroutine(ShipStage());
 	}
 
-	private void OnPlanetStage() {
+	private void OnPlanetStageStart() {
 		StopAllCoroutines();
-		shipGameObject.SetActive(false);
+		shipGameObject.GetComponent<Renderer>().enabled = false;
+		shipGameObject.GetComponent<Collider2D>().enabled = false;
+		shipGameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		planetShooterGameObject.SetActive(true);
 		stage = GameStage.Planet;
 		StartCoroutine(PlanetStage());
@@ -94,7 +106,7 @@ public class GameController : MonoBehaviour {
 		for (;;) {
 			if (counter >= difficultyTimeIncrease) {
 				counter = 0;
-				asteroidSpawner.asteroidMaxAmount++;
+				asteroidSpawner .asteroidMaxAmount++;
 			}
 			counter += Time.deltaTime;
 			yield return null;
