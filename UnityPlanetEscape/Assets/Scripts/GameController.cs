@@ -4,6 +4,7 @@ using ReadonlyData;
 using Ship;
 using Shooting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 	public PlayerPlanet currentPlanet;
@@ -157,7 +158,7 @@ public class GameController : MonoBehaviour {
 			} //todo maybe random here?
 
 			if (Population < 0)
-				Debug.Log("game over");
+				SceneManager.LoadScene("GameOver"); 
 			yield return new WaitForSeconds(2f);
 		}
 	}
