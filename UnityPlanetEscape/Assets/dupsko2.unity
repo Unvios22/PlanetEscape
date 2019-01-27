@@ -283,6 +283,11 @@ PrefabInstance:
       propertyPath: fuelUpgradeCost
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5891173702627878022, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba,
+        type: 3}
+      propertyPath: hpBarAnimator
+      value: 
+      objectReference: {fileID: 882841357559163698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba, type: 3}
 --- !u!1 &489916287 stripped
@@ -789,9 +794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a0f63d46e54193b7ad74c007acc2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  asteroidDamage: 0
-  hpBarAnimator: {fileID: 882841357559163698}
 --- !u!224 &2080321664
 RectTransform:
   m_ObjectHideFlags: 0
