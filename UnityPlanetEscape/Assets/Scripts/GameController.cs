@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour {
 	[SerializeField] private GameObject planetShooterGameObject;
 	private GameObject shipLogic;
 
+	[SerializeField] private GameObject gunGameObject;
+
 	private delegate void GameStageChangeDelegate();
 
 	private event GameStageChangeDelegate ShipStageEvent;
@@ -42,6 +44,8 @@ public class GameController : MonoBehaviour {
 		currentPlanet.tag = Tags.PLAYER_PLANET;
 		currentPlanet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		currentPlanet.gameController = this;
+//		currentPlanet.transform.position = gunGameObject.transform.position;
+//		shipControls.gameObject.transform.position = currentPlanet.transform.position;
 		PlanetStageEvent();
 	}
 
@@ -117,7 +121,7 @@ public class GameController : MonoBehaviour {
 		asteroidSpawner.asteroidMaxAmount = 25;
 		StartCoroutine(DifficultyIncrease());
 		for (;;) {
-			planetControls.ReadControls();
+//			planetControls.ReadControls();
 			if (Input.GetKey(KeyCode.E)) {
 				//todo: test against some variables and subtract some of them - so  that launching the ship acually costs something
 				ShipStageEvent();

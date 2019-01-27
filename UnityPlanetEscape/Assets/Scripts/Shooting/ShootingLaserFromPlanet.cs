@@ -35,7 +35,6 @@ public class ShootingLaserFromPlanet : MonoBehaviour {
         anim = GetComponent<Animator>();
 
         maxDistanceFrom = planet.GetComponent<CircleCollider2D>().radius;
-
     }
 
     private void Update() {
