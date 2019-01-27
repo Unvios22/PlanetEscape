@@ -54,23 +54,23 @@ public class UIScript : MonoBehaviour
 
     void PrintFuel()
     {
-        currentHP.text = "" + ShipLogic.CurrentFuel1;
-        maxHP.text = "/" + ShipLogic.MaxFuel;
+        currentHP.text = "" + (int)ShipLogic.CurrentFuel1;
+        maxHP.text = "/" + (int)ShipLogic.MaxFuel;
     }
 
     void PrintResources()
     {
-        currentResources.text = "" + GameController.resources;
+        currentResources.text = "" + (int)GameController.resources;
     }
 
     void PrintFood()
     {
-        currentFood.text = "" + GameController.food;
+        currentFood.text = "" + (int)GameController.food;
     }
 
     void PrintPopulation()
     {
-        currentPopulation.text = "" + GameController.population;
+        currentPopulation.text = "" + (int)GameController.population;
     }
 
     void ChangeIcons()
@@ -115,16 +115,16 @@ public class UIScript : MonoBehaviour
     public void PrintThingsInWindow()
     {
         //fuel
-        currentHPinWIn.text = "" + ShipLogic.CurrentFuel1;
-        maxHPinWIn.text = "/ " + ShipLogic.MaxFuel;
+        currentHPinWIn.text = "" + (int)ShipLogic.CurrentFuel1;
+        maxHPinWIn.text = "/ " + (int)ShipLogic.MaxFuel;
         //ppl capacity
-        pplOnBoard.text = "" + ShipLogic.maxPplOnBoard;
+        pplOnBoard.text = "" + (int)ShipLogic.maxPplOnBoard;
         //food
-        currentFoodinWin.text = "" + GameController.food;
+        currentFoodinWin.text = "" + (int)GameController.food;
         //resources
-        currentResourcesinWIn.text = "" + GameController.resources;
+        currentResourcesinWIn.text = "" + (int)GameController.resources;
         //population
-        currentPopulationinWin.text = "" + GameController.population;
+        currentPopulationinWin.text = "" + (int)GameController.population;
         
 
 
