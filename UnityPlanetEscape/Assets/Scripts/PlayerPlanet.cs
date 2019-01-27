@@ -16,6 +16,7 @@ public class PlayerPlanet : MonoBehaviour {
 			//minus pop and resources on collision with asteroid
 			gameController.Population -= Random.Range(10f, 40f);
 			gameController.Resources -= Random.Range(10f, 40f);
+			Debug.Log("dupa");
 		}
 	}
 }
