@@ -1,20 +1,30 @@
 using System.Collections;
+using System.Collections.Generic;
+using ReadonlyData;
 using Ship;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
+	public PlayerPlanet currentPlanet;
 	public float planetProgress;
+	public float resources;
+	public float population;
+	public float food;
 	public GameStage stage;
 	[SerializeField] private AsteroidSpawner asteroidSpawner;
 	[SerializeField] private float difficultyTimeIncrease = 2f;
-
-	[SerializeField] private ShipLogic shipControls;
-
-	[SerializeField] private ShootingFromPlanet planetControls;
 	//lower means harder
 
+	[SerializeField] private GameObject screenCenter;
+	[SerializeField] private List<GameObject> PlanetPrefabsList = new List<GameObject>();
+	[SerializeField] private ShipLogic shipControls;
+	[SerializeField] private ShootingFromPlanet planetControls;
+	[SerializeField] private GameObject shipGameObject;
+	[SerializeField] private GameObject planetShooterGameObject;
+	
+
 	private delegate void GameStageChangeDelegate();
-	private event GameStageChangeDelegate ShipStageEvent ;
+	private event GameStageChangeDelegate ShipStageEvent;
 	private event GameStageChangeDelegate PlanetStageEvent;
 
 	public enum GameStage {
@@ -22,28 +32,51 @@ public class GameController : MonoBehaviour {
 		Ship
 	}
 
-	private void Start() {
+	public void ColonizePlanet(GameObject planet) {
+		currentPlanet = planet.AddComponent<PlayerPlanet>();
+		currentPlanet.tag = Tags.PLAYER_PLANET;
+		currentPlanet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		PlanetStageEvent();
+
+	}
+
+	private void Start() {
+		InitializeStaringPlanet();
+	}
+
+	private void InitializeStaringPlanet() {
+		var startingPlanet = Instantiate(PlanetPrefabsList[Random.Range(0, PlanetPrefabsList.Count)]);
+		startingPlanet.transform.position = screenCenter.transform.position;
+		ColonizePlanet(startingPlanet);
 	}
 
 	private void OnEnable() {
 		
-		ShipStageEvent += OnShipStage;
-		PlanetStageEvent += OnPlanetStage;
+		ShipStageEvent += OnShipStageStart;
+		PlanetStageEvent += OnPlanetStageStart;
 	}
 
 	private void OnDisable() {
-		ShipStageEvent -= OnShipStage;
-		PlanetStageEvent -= OnPlanetStage;
+		ShipStageEvent -= OnShipStageStart;
+		PlanetStageEvent -= OnPlanetStageStart;
 	}
 
-	private void OnShipStage() {
+	private void OnShipStageStart() {
 		StopAllCoroutines();
+		shipGameObject.GetComponent<Renderer>().enabled = true;
+		shipGameObject.GetComponent<Collider2D>().enabled = true;
+		planetShooterGameObject.SetActive(false);
+		stage = GameStage.Ship;
 		StartCoroutine(ShipStage());
 	}
 
-	private void OnPlanetStage() {
+	private void OnPlanetStageStart() {
 		StopAllCoroutines();
+		shipGameObject.GetComponent<Renderer>().enabled = false;
+		shipGameObject.GetComponent<Collider2D>().enabled = false;
+		shipGameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+		planetShooterGameObject.SetActive(true);
+		stage = GameStage.Planet;
 		StartCoroutine(PlanetStage());
 	}
 
@@ -63,6 +96,7 @@ public class GameController : MonoBehaviour {
 			//todo: test against some variables and subtract some of them - so  that launching the ship acually costs something
 			ShipStageEvent();
 			}
+			yield return null;
 		}
 
 	}
@@ -72,8 +106,10 @@ public class GameController : MonoBehaviour {
 		for (;;) {
 			if (counter >= difficultyTimeIncrease) {
 				counter = 0;
-				asteroidSpawner.asteroidMaxAmount++;
+				asteroidSpawner .asteroidMaxAmount++;
 			}
+			counter += Time.deltaTime;
+			yield return null;
 		}
 	}
 

@@ -7,6 +7,9 @@ TagManager:
   - Planet
   - AsteroidField
   - Asteroid
+  - AlienPlanet
+  - PlayerPlanet
+  - UI_HP_Bar
   - Laser
   layers:
   - Default
