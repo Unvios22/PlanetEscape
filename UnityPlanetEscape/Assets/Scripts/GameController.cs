@@ -71,6 +71,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	private void OnPlanetStageStart() {
+		GiveThemFood(100);
 		StopAllCoroutines();
 		shipGameObject.GetComponent<Renderer>().enabled = false;
 		shipGameObject.GetComponent<Collider2D>().enabled = false;
@@ -116,6 +117,11 @@ public class GameController : MonoBehaviour {
 	private IEnumerator FuelIncrease() {
 		//todo hook up reference to ship and ioncrease its fuel by time.delta time every frame
 		yield return null;
+	}
+
+	void GiveThemFood(float amount)
+	{
+		food = amount;
 	}
 
 
