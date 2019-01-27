@@ -162,7 +162,7 @@ PrefabInstance:
     - target: {fileID: 8518802039793712232, guid: 24261acfae0e81743824bde98d7fbb75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8518802039793712232, guid: 24261acfae0e81743824bde98d7fbb75,
         type: 3}
@@ -248,8 +248,82 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &500984188
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4107382012611873301, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.5321617
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2990525
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131315681322078463, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554215473816819209, guid: 49c7bfc2e8053374ba9499fbc084b843,
+        type: 3}
+      propertyPath: ShootingLaserFromPlanet
+      value: 
+      objectReference: {fileID: 2083713307}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49c7bfc2e8053374ba9499fbc084b843, type: 3}
 --- !u!1 &1829068865
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +487,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083713306}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec1df0e6538575042aeda76f370e8d77, type: 3}
   m_Name: 
@@ -428,72 +502,3 @@ MonoBehaviour:
   cameraHeight: 0
   cameraWidth: 0
   planet: {fileID: 1969453489}
---- !u!1001 &7931986421975514779
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1472946927978315877, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_Name
-      value: exhaust gases
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.3870347
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.12340078
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2653464081097725160, guid: 0315287fc53509744b426e43ed555d2d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0315287fc53509744b426e43ed555d2d, type: 3}
