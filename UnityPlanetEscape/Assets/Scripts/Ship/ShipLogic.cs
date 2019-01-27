@@ -11,7 +11,7 @@ namespace Ship {
 		Vector3 mousePoz, worldPoz, velocity;
 		private float speed = 90f;
 		Rigidbody2D rb;
-		public float health = 100f;
+		[Range(0,100)]public float health = 100f;
 		[SerializeField] private float asteroidDamage;
 
 		[FormerlySerializedAs("fuel")] [SerializeField]
@@ -104,7 +104,12 @@ namespace Ship {
 			
 		}
 
-		public float CurrentFuel => currentFuel;
+		
+		public float CurrentFuel1
+		{
+			get { return currentFuel; }
+			set { currentFuel = value; }
+		}
 		public float MaxFuel => maxFuel;
 	}
 }

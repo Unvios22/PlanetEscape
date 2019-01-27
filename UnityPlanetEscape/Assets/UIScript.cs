@@ -52,7 +52,7 @@ public class UIScript : MonoBehaviour
 
     void PrintFuel()
     {
-        currentHP.text = "" + ShipLogic.CurrentFuel;
+        currentHP.text = "" + ShipLogic.CurrentFuel1;
         maxHP.text = "/" + ShipLogic.MaxFuel;
     }
 
@@ -111,7 +111,7 @@ public class UIScript : MonoBehaviour
     public void PrintThingsInWindow()
     {
         //fuel
-        currentHPinWIn.text = "" + ShipLogic.CurrentFuel;
+        currentHPinWIn.text = "" + ShipLogic.CurrentFuel1;
         maxHPinWIn.text = "/ " + ShipLogic.MaxFuel;
         //ppl capacity
         pplOnBoard.text = "" + ShipLogic.maxPplOnBoard;
