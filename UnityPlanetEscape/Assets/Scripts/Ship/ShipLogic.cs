@@ -7,9 +7,12 @@ namespace Ship {
 	[RequireComponent(typeof(Rigidbody2D))]
 	public class ShipLogic : MonoBehaviour {
 		[SerializeField] private Camera _Camera;
+		[SerializeField] private Animator hpBarAnimator;
 		Vector3 mousePoz, worldPoz, velocity;
 		private float speed = 90f;
 		Rigidbody2D rb;
+		public float health = 100f;
+		[SerializeField] private float asteroidDamage = 30f;
 
 		[FormerlySerializedAs("fuel")] [SerializeField]
 		private float currentFuel;
@@ -23,6 +26,7 @@ namespace Ship {
 
 		void Start() {
 			rb = GetComponent<Rigidbody2D>();
+			hpBarAnimator = GameObject.FindWithTag(Tags.UI_HP_BAR).GetComponent<Animator>();
 		}
 
 
@@ -40,6 +44,11 @@ namespace Ship {
 				}
 			}
 
+			hpBarAnimator.SetFloat("HP",health);
+			if (health <= 0) {
+				Debug.Log("You died.");
+				//todo implement dying mechanic
+			}
 			if (currentFuel < 0)
 				currentFuel = 0;
 			if (Input.GetKeyDown(KeyCode.Space)) {
@@ -80,9 +89,24 @@ namespace Ship {
 				if (gameController.resources > fuelUpgradeCost) {
 					gameController.resources -= fuelUpgradeCost;
 					currentFuel += fuelAmmount;
-					if (fuelAmmount > maxFuel)
-						fuelAmmount = maxFuel;
+					if (currentFuel > maxFuel)
+						currentFuel = maxFuel;
 				}
+			}
+		}
+
+		public void Repare()
+		{
+			if (health < 100)
+			{
+				if (gameController.resources >= 70f)
+				{
+					gameController.resources -= 70f;
+					health += 10f;
+					if (health > 100)
+						health = 100f;
+				}
+				
 			}
 		}
 
@@ -90,9 +114,19 @@ namespace Ship {
 			if (other.gameObject.CompareTag(Tags.ALIEN_PLANET)) {
 				gameController.ColonizePlanet(other.gameObject);
 			}
+			if (other.gameObject.CompareTag(Tags.ASTEROID)) {
+				health -= asteroidDamage;
+				Debug.Log("Jeb "+ health);
+			}
+			
 		}
 
-		public float CurrentFuel => currentFuel;
+		
+		public float CurrentFuel1
+		{
+			get { return currentFuel; }
+			set { currentFuel = value; }
+		}
 		public float MaxFuel => maxFuel;
 	}
 }

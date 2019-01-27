@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
 	public float resources;
 	public float population;
 	public float food;
+	private float factor = 80f;
 	public GameStage stage;
 	[SerializeField] private AsteroidSpawner asteroidSpawner;
 	[SerializeField] private float difficultyTimeIncrease = 2f;
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour {
 	[SerializeField] private ShootingFromPlanet planetControls;
 	[SerializeField] private GameObject shipGameObject;
 	[SerializeField] private GameObject planetShooterGameObject;
+	private GameObject shipLogic;
 	
 
 	private delegate void GameStageChangeDelegate();
@@ -62,7 +64,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	private void OnShipStageStart() {
+		StartShip();
 		StopAllCoroutines();
+		StartCoroutine(Eat());
 		shipGameObject.GetComponent<Renderer>().enabled = true;
 		shipGameObject.GetComponent<Collider2D>().enabled = true;
 		planetShooterGameObject.SetActive(false);
@@ -79,6 +83,9 @@ public class GameController : MonoBehaviour {
 	private void OnPlanetStageStart() {
 		GiveThemFood(100);
 		StopAllCoroutines();
+		StartCoroutine(AddPopulation());
+		StartCoroutine(AddResources());
+		StartCoroutine(Eat());
 		shipGameObject.GetComponent<Renderer>().enabled = false;
 		shipGameObject.GetComponent<Collider2D>().enabled = false;
 		shipGameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -108,6 +115,31 @@ public class GameController : MonoBehaviour {
 
 	}
 
+	private IEnumerator AddResources()
+	{
+		for (;;)
+		{
+			resources++;
+			yield return new WaitForSeconds(factor/population);
+		}
+	}
+
+	private IEnumerator AddPopulation()
+	{
+		for (;;)
+		{
+			if (food > 0 && stage == GameStage.Planet)
+				population++;
+			else if(food <= 0 )
+				population-= 19; //todo maybe random here?
+			if(population <0)
+				Debug.Log("game over");
+			yield return new WaitForSeconds(2f);
+
+		}
+	}
+	
+
 	private IEnumerator DifficultyIncrease() {
 		var counter = 0f;
 		for (;;) {
@@ -128,6 +160,25 @@ public class GameController : MonoBehaviour {
 	void GiveThemFood(float amount)
 	{
 		food = amount;
+	}
+
+	private IEnumerator Eat()
+	{
+		for (;;)
+		{
+			if(food>0)
+			food--;
+			yield return new WaitForSeconds(2f - (population/100));
+		}
+		
+	}
+
+	private void StartShip()
+	{
+		if(population > shipControls.maxPplOnBoard)
+		population = shipControls.maxPplOnBoard;
+		shipControls.CurrentFuel1 -= 40f;
+		//todo im więcej osób na pokładzie, tym droższy start (minimalnie)
 	}
 
 
