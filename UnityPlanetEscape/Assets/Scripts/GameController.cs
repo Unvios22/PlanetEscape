@@ -157,7 +157,7 @@ public class GameController : MonoBehaviour {
 				}
 			} //todo maybe random here?
 
-			if (Population < 0)
+			if (Population <= 0)
 				SceneManager.LoadScene("GameOver"); 
 			yield return new WaitForSeconds(2f);
 		}
