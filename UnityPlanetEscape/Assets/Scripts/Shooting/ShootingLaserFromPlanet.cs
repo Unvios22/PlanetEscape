@@ -26,17 +26,9 @@ public class ShootingLaserFromPlanet : MonoBehaviour {
     Vector3 mousePosition;
     Vector3 temp;
     private float distance;
+    private Vector2 direction;
 
     private void Start() {
-        
-        //Vector2 origin = planet.gameObject.transform.position;
-        //Vector2 onPlanet = Random.insideUnitCircle * planetRadius;
-        //GameObject newGo =Instantiate(gameObject,onPlanet,Quaternion.identity) as GameObject;
-        
-       // newGo.transform.rotation=newGo.transform.rotation*Quaternion.Euler(90, 0, 0);
-
-       
-        
         
         cam = Camera.main;
         cameraHeight = cam.orthographicSize;
@@ -48,14 +40,7 @@ public class ShootingLaserFromPlanet : MonoBehaviour {
     }
 
     private void Update() {
-
-        //transform.LookAt(planet.transform.position.normalized);
-        transform.LookAt(new Vector3(0,0,0));
-        
-        
-        
-        
-        
+        transform.up = transform.position - targetPlanet.position ;
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
         distance = Vector3.Distance(transform.position, mousePosition);
@@ -71,7 +56,7 @@ public class ShootingLaserFromPlanet : MonoBehaviour {
             transform.position = temp;
 
         if (Input.GetKeyDown("space") && laserBulletCount < maxLaserBulletCount) {
-            var inst = Instantiate(laserBullet, transform.position, Quaternion.identity);
+            var inst = Instantiate(laserBullet, transform.position, transform.rotation);
             var LaserBulletScript = inst.GetComponent<LaserBullet>();
             LaserBulletScript.cameraHeight = cameraHeight + 0.5f;  // to przechodzi z ShootingLaserFromPlanet  do LaserBullet  (0.5 aby zniknął 0.5 m poza zasięgiem wzroku kamery)
             LaserBulletScript.cameraWidth = cameraWidth + 0.5f; // to samo tylko z szerokością
