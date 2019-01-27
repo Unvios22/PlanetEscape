@@ -10,6 +10,7 @@ TagManager:
   - AlienPlanet
   - PlayerPlanet
   - UI_HP_Bar
+  - Laser
   layers:
   - Default
   - TransparentFX
