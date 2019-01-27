@@ -43,6 +43,34 @@ namespace Shooting {
 
             maxDistanceFrom = planet.GetComponent<CircleCollider2D>().radius;
 
+<<<<<<< Updated upstream
+=======
+    private void Update() {
+        transform.up = transform.position - targetPlanet.position ;
+        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        distance = Vector3.Distance(transform.position, mousePosition);
+
+        if (mousePosition.x == 0)
+            mousePosition.x = 0.00001f;
+        float x = Mathf.Sqrt((maxDistanceFrom * maxDistanceFrom) / (1 + (mousePosition.y / mousePosition.x) * (mousePosition.y / mousePosition.x)));
+        float y = x * (mousePosition.y / mousePosition.x);
+        temp = new Vector3(x, y, 0) + planet.transform.position;
+        if (Vector3.Distance(mousePosition, temp) > Vector3.Distance(mousePosition, -temp))
+            transform.position = (-temp);
+        else
+            transform.position = temp;
+
+        if (Input.GetMouseButtonDown(0) && laserBulletCount < maxLaserBulletCount) {
+            var inst = Instantiate(laserBullet, transform.position, transform.rotation);
+            var LaserBulletScript = inst.GetComponent<LaserBullet>();
+            LaserBulletScript.cameraHeight = cameraHeight + 0.5f;  // to przechodzi z ShootingLaserFromPlanet  do LaserBullet  (0.5 aby zniknął 0.5 m poza zasięgiem wzroku kamery)
+            LaserBulletScript.cameraWidth = cameraWidth + 0.5f; // to samo tylko z szerokością
+            LaserBulletScript.ShootingLaserFromPlanet = this;
+            inst.GetComponent<Rigidbody2D>().AddForce(transform.up * forcePower);
+            laserBulletCount++;
+            
+>>>>>>> Stashed changes
         }
 
         private void Update() {
