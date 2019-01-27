@@ -19,6 +19,6 @@ public class ChangeSceneButton : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("dupsko2"); 
+        SceneManager.LoadScene("MainGameScene"); 
     }
 }
