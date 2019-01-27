@@ -179,6 +179,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3109109799493610506, guid: d290d0dc98ce0cd46a364110c8aeeceb,
+        type: 3}
+      propertyPath: spawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109109799478588534, guid: d290d0dc98ce0cd46a364110c8aeeceb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3109109799293874622, guid: d290d0dc98ce0cd46a364110c8aeeceb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -342,10 +352,17 @@ MonoBehaviour:
   stage: 0
   asteroidSpawner: {fileID: 1198261659}
   difficultyTimeIncrease: 2
+  screenCenter: {fileID: 2080321661}
+  PlanetPrefabsList:
+  - {fileID: 1766499060084217969, guid: 0955f89975b8b5a4fbf122100691ed73, type: 3}
+  - {fileID: 1766499060084217969, guid: 46e0caf913994fd4dbfa800cbff9c57e, type: 3}
+  - {fileID: 1766499060084217969, guid: 7088e8e7f767a5541969f667ee5f1440, type: 3}
+  - {fileID: 1766499060084217969, guid: ac1988ec74f80ac418346dcaa295cd35, type: 3}
+  - {fileID: 1766499060084217969, guid: cf17be3f1bc19a34381893bfba35c228, type: 3}
+  - {fileID: 1766499060084217969, guid: f64a3525c9adfbd4f9e802465a372c5f, type: 3}
   shipControls: {fileID: 745300888}
   planetControls: {fileID: 502878974}
   shipGameObject: {fileID: 489916287}
-  playerPlanetGameObject: {fileID: 0}
   planetShooterGameObject: {fileID: 1459090602}
 --- !u!4 &915376450
 Transform:
@@ -542,6 +559,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM
       objectReference: {fileID: 0}
+    - target: {fileID: 882841357559163696, guid: a88593f7831f64121ae6673b52a2fe46,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI_HP_Bar
+      objectReference: {fileID: 0}
     - target: {fileID: 882841357850789320, guid: a88593f7831f64121ae6673b52a2fe46,
         type: 3}
       propertyPath: ShipLogic
@@ -676,7 +698,7 @@ GameObject:
   - component: {fileID: 2080321662}
   - component: {fileID: 2080321663}
   m_Layer: 0
-  m_Name: Planet
+  m_Name: ScreenCenter
   m_TagString: Planet
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
