@@ -13,7 +13,8 @@ namespace Shooting {
 
         public float cameraHeight;
 
-        public float cameraWidth;
+    public float cameraWidth;
+    private Animator anim;
 
         [SerializeField] GameObject planet;
 
@@ -27,19 +28,12 @@ namespace Shooting {
 
         private void Start() {
         
-            //Vector2 origin = planet.gameObject.transform.position;
-            //Vector2 onPlanet = Random.insideUnitCircle * planetRadius;
-            //GameObject newGo =Instantiate(gameObject,onPlanet,Quaternion.identity) as GameObject;
-        
-            // newGo.transform.rotation=newGo.transform.rotation*Quaternion.Euler(90, 0, 0);
+        cam = Camera.main;
+        cameraHeight = cam.orthographicSize;
+        cameraWidth = cameraHeight * cam.aspect;
+        anim = GetComponent<Animator>();
 
-       
-        
-        
-            cam = Camera.main;
-            cameraHeight = cam.orthographicSize;
-            cameraWidth = cameraHeight * cam.aspect;
-
+        maxDistanceFrom = planet.GetComponent<CircleCollider2D>().radius;
 
             maxDistanceFrom = planet.GetComponent<CircleCollider2D>().radius;
 
@@ -62,6 +56,7 @@ namespace Shooting {
             transform.position = temp;
 
         if (Input.GetMouseButtonDown(0) && laserBulletCount < maxLaserBulletCount) {
+            anim.enabled = true;
             var inst = Instantiate(laserBullet, transform.position, transform.rotation);
             var LaserBulletScript = inst.GetComponent<LaserBullet>();
             LaserBulletScript.cameraHeight = cameraHeight + 0.5f;  // to przechodzi z ShootingLaserFromPlanet  do LaserBullet  (0.5 aby zniknął 0.5 m poza zasięgiem wzroku kamery)
@@ -69,14 +64,14 @@ namespace Shooting {
             LaserBulletScript.ShootingLaserFromPlanet = this;
             inst.GetComponent<Rigidbody2D>().AddForce(transform.up * forcePower);
             laserBulletCount++;
+           
             
->>>>>>> Stashed changes
+
+
         }
+       
 
-        private void Update() {
 
-            //transform.LookAt(planet.transform.position.normalized);
-            transform.LookAt(new Vector3(0,0,0));
         
         
         
@@ -110,6 +105,11 @@ namespace Shooting {
         }
 
     }
+
+    public void EnableAnimator() {
+        anim.enabled = false;
+    }
+
 }
     
     

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8518802039793712232}
   - component: {fileID: 2972538305863456339}
   - component: {fileID: 4204400573021062804}
+  - component: {fileID: 2083713307}
   m_Layer: 0
   m_Name: Laser Canon
   m_TagString: Untagged
@@ -99,3 +100,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2083713307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4215605991906732132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1df0e6538575042aeda76f370e8d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserBullet: {fileID: 4107382012611873301, guid: 49c7bfc2e8053374ba9499fbc084b843,
+    type: 3}
+  planetRadius: 0
+  targetPlanet: {fileID: 0}
+  laserBulletCount: 0
+  maxLaserBulletCount: 5
+  forcePower: 100
+  cameraHeight: 0
+  cameraWidth: 0
+  planet: {fileID: 0}
