@@ -288,6 +288,16 @@ PrefabInstance:
       propertyPath: hpBarAnimator
       value: 
       objectReference: {fileID: 882841357559163698}
+    - target: {fileID: 5891173702627878022, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba,
+        type: 3}
+      propertyPath: maxPplOnBoard
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891173702627878022, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba,
+        type: 3}
+      propertyPath: asteroidDamage
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdda54b9e4f7444ba9a5d2ef9ba1f8ba, type: 3}
 --- !u!1 &489916287 stripped

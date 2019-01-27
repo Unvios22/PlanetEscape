@@ -11,8 +11,8 @@ namespace Ship {
 		Vector3 mousePoz, worldPoz, velocity;
 		private float speed = 90f;
 		Rigidbody2D rb;
-		[Range(0,100)]public float health = 100f;
-		[SerializeField] private float asteroidDamage;
+		public float health = 100f;
+		[SerializeField] private float asteroidDamage = 30f;
 
 		[FormerlySerializedAs("fuel")] [SerializeField]
 		private float currentFuel;
@@ -99,8 +99,10 @@ namespace Ship {
 			if (other.gameObject.CompareTag(Tags.ALIEN_PLANET)) {
 				gameController.ColonizePlanet(other.gameObject);
 			}
-			//todo health--;
-			health -= asteroidDamage;
+			if (other.gameObject.CompareTag(Tags.ASTEROID)) {
+				health -= asteroidDamage;
+				Debug.Log("Jeb "+ health);
+			}
 			
 		}
 
