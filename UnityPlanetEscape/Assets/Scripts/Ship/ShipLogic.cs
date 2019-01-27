@@ -95,6 +95,21 @@ namespace Ship {
 			}
 		}
 
+		public void Repare()
+		{
+			if (health < 100)
+			{
+				if (gameController.resources >= 70f)
+				{
+					gameController.resources -= 70f;
+					health += 10f;
+					if (health > 100)
+						health = 100f;
+				}
+				
+			}
+		}
+
 		private void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.CompareTag(Tags.ALIEN_PLANET)) {
 				gameController.ColonizePlanet(other.gameObject);
