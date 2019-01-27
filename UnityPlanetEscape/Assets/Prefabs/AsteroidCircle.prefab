@@ -49,9 +49,9 @@ MonoBehaviour:
   - {fileID: 1737678165855324321, guid: 6acc311dc763f05409c4cbb502382727, type: 3}
   - {fileID: 1737678165855324321, guid: 6b9d7ed5f900f3a4b9f1d393b50514f9, type: 3}
   spawnCenter: {fileID: 0}
-  asteridMaxAmount: 25
-  minimalDistanceToPlanet: 5
-  maxDistanceToPlanet: 25
-  asteroidSpawnRadius: 10
+  asteroidMaxAmount: 25
+  minimalDistanceToPlanet: 10
+  maxDistanceToPlanet: 30
+  asteroidSpawnRadius: 15.78
   asteroidSpeed: 10
   asteroidAmount: 0
