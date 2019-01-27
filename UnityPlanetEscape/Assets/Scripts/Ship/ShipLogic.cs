@@ -1,4 +1,5 @@
 ﻿using System;
+using AsteroidMechanic;
 using ReadonlyData;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -116,6 +117,7 @@ namespace Ship {
 			}
 			if (other.gameObject.CompareTag(Tags.ASTEROID)) {
 				health -= asteroidDamage;
+				other.gameObject.GetComponent<Asteroid>().DestroyAsteroid();
 				Debug.Log("Jeb "+ health);
 			}
 			

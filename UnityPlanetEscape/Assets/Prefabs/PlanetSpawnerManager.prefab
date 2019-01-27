@@ -85,7 +85,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3109109799224626942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.33, y: 4.11, z: 0}
+  m_LocalPosition: {x: 17.09, y: 4.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3109109800013698095}
@@ -168,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3109109799293874623}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.19, y: 7.26, z: 0}
+  m_LocalPosition: {x: -14.3, y: 7.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3109109800188606217}
@@ -218,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3109109799478588535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 2.33, z: 0}
+  m_LocalPosition: {x: 0.09, y: 4.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3109109799493610507}
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f7007b54ae5344b8fc8f4dfdf1ba35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 3
+  spawnInterval: 12
   planetSpawnersList:
   - {fileID: 3109109799293874621}
   - {fileID: 3109109799224626940}
