@@ -14,8 +14,8 @@ public class PlayerPlanet : MonoBehaviour {
 		if (other.CompareTag(Tags.ASTEROID)) {
 			other.GetComponent<Asteroid>().DestroyAsteroid();
 			//minus pop and resources on collision with asteroid
-			gameController.population -= Random.Range(10f, 40f);
-			gameController.resources -= Random.Range(10f, 40f);
+			gameController.Population -= Random.Range(10f, 40f);
+			gameController.Resources -= Random.Range(10f, 40f);
 		}
 	}
 }
