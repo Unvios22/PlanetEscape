@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Ship;
+using UnityEditorInternal;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class UIScript : MonoBehaviour
 {
     [SerializeField] public bool IsInSpace;
+    public bool isUIOpen;
     public ShipLogic ShipLogic;
     public GameController GameController;
     //in-game UI
@@ -52,23 +54,23 @@ public class UIScript : MonoBehaviour
 
     void PrintFuel()
     {
-        currentHP.text = "" + ShipLogic.CurrentFuel;
-        maxHP.text = "/" + ShipLogic.MaxFuel;
+        currentHP.text = "" + (int)ShipLogic.CurrentFuel1;
+        maxHP.text = "/" + (int)ShipLogic.MaxFuel;
     }
 
     void PrintResources()
     {
-        currentResources.text = "" + GameController.resources;
+        currentResources.text = "" + (int)GameController.resources;
     }
 
     void PrintFood()
     {
-        currentFood.text = "" + GameController.food;
+        currentFood.text = "" + (int)GameController.food;
     }
 
     void PrintPopulation()
     {
-        currentPopulation.text = "" + GameController.population;
+        currentPopulation.text = "" + (int)GameController.population;
     }
 
     void ChangeIcons()
@@ -77,23 +79,25 @@ public class UIScript : MonoBehaviour
         {
             fuel.SetActive(true);
             resources.SetActive(false);
-            Bar.SetActive(false);
+            Bar.SetActive(true);
         }
         else
         {
             fuel.SetActive(false);
             resources.SetActive(true);
-            Bar.SetActive(true);
+            Bar.SetActive(false);
         }
         
     }
-    public void OpenWindow()
-    {
+    public void OpenWindow() {
+        isUIOpen = true;
         window.SetActive(true);
+        GameController.FreezeTime();
     }
-    public void CloseWindow()
-    {
+    public void CloseWindow() {
+        isUIOpen = false;
         window.SetActive(false);
+        GameController.UnFreezeTime();
     }
 
     void ChangeBool()
@@ -111,16 +115,16 @@ public class UIScript : MonoBehaviour
     public void PrintThingsInWindow()
     {
         //fuel
-        currentHPinWIn.text = "" + ShipLogic.CurrentFuel;
-        maxHPinWIn.text = "/ " + ShipLogic.MaxFuel;
+        currentHPinWIn.text = "" + (int)ShipLogic.CurrentFuel1;
+        maxHPinWIn.text = "/ " + (int)ShipLogic.MaxFuel;
         //ppl capacity
-        pplOnBoard.text = "" + ShipLogic.maxPplOnBoard;
+        pplOnBoard.text = "" + (int)ShipLogic.maxPplOnBoard;
         //food
-        currentFoodinWin.text = "" + GameController.food;
+        currentFoodinWin.text = "" + (int)GameController.food;
         //resources
-        currentResourcesinWIn.text = "" + GameController.resources;
+        currentResourcesinWIn.text = "" + (int)GameController.resources;
         //population
-        currentPopulationinWin.text = "" + GameController.population;
+        currentPopulationinWin.text = "" + (int)GameController.population;
         
 
 
