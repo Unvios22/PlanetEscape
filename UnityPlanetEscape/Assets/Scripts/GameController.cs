@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour {
 		currentPlanet = planet.AddComponent<PlayerPlanet>();
 		currentPlanet.tag = Tags.PLAYER_PLANET;
 		currentPlanet.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+		currentPlanet.gameController = this;
 		PlanetStageEvent();
 	}
 
