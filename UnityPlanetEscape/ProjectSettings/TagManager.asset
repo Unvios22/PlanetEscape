@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Planet
+  - AsteroidField
+  - Asteroid
+  - AlienPlanet
+  - PlayerPlanet
+  - UI_HP_Bar
+  - Laser
   layers:
   - Default
   - TransparentFX
@@ -14,7 +21,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Background
   - 
   - 
   - 
